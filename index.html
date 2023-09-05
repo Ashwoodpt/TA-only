@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="index.css" />
+		<title>Document</title>
+	</head>
+	<body>
+		<main class="landing">
+			<div id="btn-container"></div>
+		</main>
+	</body>
+	<script>
+		const buttonData = [
+			{ top: '45vh', left: '35vw', label: 'lorem ipsum' },
+			{ top: '25vh', left: '30vw', label: 'lorem ipsum' },
+			{ top: '66vh', left: '23vw', label: 'lorem ipsum' },
+			{ top: '38vh', left: '60vw', label: 'lorem ipsum' },
+			{ top: '20vh', left: '71vw', label: 'lorem ipsum' },
+			{ top: '45vh', left: '73vw', label: 'lorem ipsum' },
+			{ top: '65vh', left: '67vw', label: 'lorem ipsum' },
+			{ top: '60vh', left: '56vw', label: 'lorem ipsum' },
+			{ top: '70vh', left: '83vw', label: 'lorem ipsum' },
+		];
+
+		const handleButtonClick = (element) => {};
+
+		buttonData.map((button, id) => {
+			const element = document.createElement('button');
+			element.type = 'button';
+			element.className = 'btn';
+			element.style = `top:${button.top}; left:${button.left}`;
+			element.onclick = function () {
+				if (element.querySelector('span').style.display === 'none') {
+					console.log('yes');
+					element.querySelector('span').style.display = 'block';
+					element.querySelector('img').style.paddingLeft = '0.55rem';
+					element.style.borderRadius = '40px';
+				} else {
+					element.querySelector('span').style.display = 'none';
+					element.querySelector('img').style.paddingLeft = '0';
+				}
+			};
+
+			element.innerHTML = `<img src="./assets/Vector 11.png" alt="icon" /><span style="display: none;">${button.label}</span>`;
+
+			document.getElementById('btn-container').appendChild(element);
+		});
+	</script>
+</html>
